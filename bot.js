@@ -2,12 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const commandHandler = require('./commandHandler')
 
+require('dotenv').config();
 
 function clientReady() {
 	console.log(`Bot online! ${client.user.username}`);
 }
 
 client.on('ready', clientReady)
-client.login("Nzc1MTgyNzc0MjE0NTkwNTE1.X6inNw.gGyGgHi1EcSBJwJXgug1zWX14cM");
+client.login(process.env.BOT_TOKEN);
 
 client.on("message", commandHandler)
