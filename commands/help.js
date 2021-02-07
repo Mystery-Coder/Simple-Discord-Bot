@@ -14,12 +14,18 @@ fs.readdirSync('commands').forEach(name => {
 	commands_arr.push(obj);
 })
 
+commands_arr.push({
+	name: "Number of Commands.",
+	value: commands_arr.length,
+	inline: true
+})
+
 
 const exampleEmbed = {
 	color: 0x0096ee,
 	title: 'Help for FirstBot',
 	author: {
-		name: 'TheMystery1197',
+		name: 'FirstBot',
 	},
 	description: 'This shows the commands available for FirstBot',
 	fields: commands_arr

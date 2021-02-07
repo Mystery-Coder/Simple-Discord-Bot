@@ -2,11 +2,18 @@ const fs = require('fs');
 
 module.exports = function (msg) {
 
+
+	if (msg.content === "Hello, FirstBot") {
+		msg.channel.send(`Hi, ${msg.author.username} I am watching and learning`);
+	}
+
+
+
 	let commands = {};
 
 	fs.readdirSync("commands").forEach(file => {
 		command_name = file.replace(".js", "");
-		commands[command_name] = require(`./commands/${file}`);
+		commands[command_name] = require(`./commands/${command_name}`);
 	})
 	// console.log(commands)
 
