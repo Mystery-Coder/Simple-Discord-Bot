@@ -7,6 +7,11 @@ module.exports = function (msg) {
 		msg.channel.send(`Hi, ${msg.author.username} I am watching and learning`);
 	}
 
+	if (msg.content === "FirstBot is an idiot") {
+		msg.reply("Only people who can't be first say that.👏👏");
+		msg.react("😲")
+	}
+
 
 
 	let commands = {};
