@@ -8,24 +8,31 @@ let infoEmbed = {
 const isInline = false;
 
 module.exports = function (msg, args) {
-	infoEmbed.title = `Info about ${msg.author.username}`;
+
+	let first_mention = msg.mentions.users.first();
+
+	let user_to_use = first_mention === undefined ? msg.author : first_mention;
+	// console.log(!first_mention);
+
+
+	infoEmbed.title = `Info about ${user_to_use.username}`;
 	let info = [];
 
 	info.push({
 		name: "Username",
-		value: msg.author.username,
+		value: user_to_use.username,
 		inline: isInline
 	});
 
 
 	info.push({
 		name: "Is a bot?",
-		value: msg.author.bot ? "Is a bot." : "Not a bot.",
+		value: user_to_use.bot ? "Is a bot." : "Not a bot.",
 		inline: isInline
 	});
 
 
-	let d = new Date(msg.member.user.createdAt);
+	let d = new Date(user_to_use.createdAt);
 	// d = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`
 	info.push({
 		name: "Account Created On",
