@@ -10,11 +10,11 @@ fs.readdirSync("commands").forEach(file => {
 
 module.exports = function (msg) {
 
-	let validChannelIDs = ["808518642966331454", "808323759467397141", "807924068925571082"];
+	let validChannelIDs = ["808518642966331454", "808323759467397141"];
 
-
-	// console.log(msg.channel.id)
-	if (validChannelIDs.includes(msg.channel.id) === false) {
+	let channel = msg.channel;
+	// console.log(channel.type)
+	if (validChannelIDs.includes(channel.id) === false && (channel.type !== "dm" && channel.type !== "text")) {
 		return;
 	}
 
