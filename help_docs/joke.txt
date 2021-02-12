@@ -1,8 +1,0 @@
-The joke command queries the JokeAPI for a random joke.
-
-If any words are provided after the command it will query the JokeAPI
-for those keywords.
-Ex: $joke apples
-
-If nothing is provided the bot will send a random joke.
-That is, $joke.

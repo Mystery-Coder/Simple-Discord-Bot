@@ -1,8 +1,0 @@
-The $gif command queries the Tenor GIF API for a few 
-gifs and picks a random one.
-
-If no search words are provided after the command it sends a random
-gif related to keyword 'welcome'. Ex: $gif
-
-If search words are provided it will send a related random gif.
-Ex: $gif coding train. 

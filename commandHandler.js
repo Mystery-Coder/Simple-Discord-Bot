@@ -4,7 +4,7 @@ let commands = {};
 
 fs.readdirSync("commands").forEach(file => {
 	command_name = file.replace(".js", "");
-	commands[command_name] = require(`./commands/${command_name}`);
+	commands[command_name] = require(`./commands/${command_name}`).func;
 })
 
 
@@ -32,7 +32,9 @@ module.exports = function (msg) {
 	}
 
 
-
+	if (msg.content === "srikar is mad" || msg.content === "Srikar is mad") {
+		msg.reply("Do not Question the creator😑");
+	}
 
 	// console.log(commands)
 

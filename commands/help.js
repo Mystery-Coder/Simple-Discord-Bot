@@ -37,26 +37,24 @@ const exampleEmbed = {
 	fields: fields_arr
 };
 
-module.exports = async function (msg, args) {
-	if (args.length === 0) {
-		msg.channel.send({ embed: exampleEmbed });
-		return;
-	}
+module.exports = {
+	func: async function (msg, args) {
+		let help_command = args[0]
 
-	let help_command = args[0]
+		if (args.length === 0 || help_command === "help") {
+			msg.channel.send({ embed: exampleEmbed });
+			return;
+		}
 
-	if (help_command === "help") {
-		msg.channel.send({ embed: exampleEmbed });
-		return;
-	}
+		let path = `commands\\${help_command}.js`;
+		// console.log(require.main.path)
+		if (existsSync(path)) {
+			let help_txt = require(`./${help_command}`).help;
 
-
-	if (existsSync(`help_docs\\${help_command}.txt`)) {
-		let help_txt = readFileSync(`help_docs\\${help_command}.txt`).toString();
-
-		msg.channel.send("```" + help_txt + "```");
-	} else {
-		msg.channel.send("Not a valid command.")
-		msg.react("🤣");
+			msg.channel.send("```" + help_txt + "```");
+		} else {
+			msg.reply("Not a valid command.")
+			msg.react("🤣");
+		}
 	}
 }

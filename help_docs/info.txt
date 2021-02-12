@@ -1,8 +1,0 @@
-The info command will provide basic information about the
-user who sent the message. That is, $info
-Information like created account at date, if user is a bot, etc.
-
-Also if any @mention is present it will provide the information of 
-the first @mention.
-Ex: $info @User#0000
-
