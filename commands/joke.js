@@ -13,6 +13,6 @@ module.exports = async function (msg, args) {
 	const response = await fetch(JokeURL);
 	const jokes_JSON = await response.json();
 
-	msg.channel.send(jokes_JSON.joke);
+	await msg.channel.send(jokes_JSON.joke);
 
 }

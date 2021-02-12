@@ -10,7 +10,8 @@ module.exports = async function (msg, args) {
 	// let q = "random";
 
 	if (isNaN(user_input) === true && args.length !== 0) {
-		msg.channel.send("Please provide a number 👍");
+		msg.channel.send("Please provide a number");
+		msg.react("👍");
 		return;
 	}
 
