@@ -33,8 +33,7 @@ module.exports = {
 
 
 	},
-	help: `The trivia command queries the http://numbersapi.com/ API for simple trivia on
-	numbers or anything in general.
+	help: `The trivia command queries the http://numbersapi.com/ API for simple trivia on numbers or anything in general.
 	
 	If a number is provided, the bot will send a fact on that number. Ex: $trivia 231
 	If nothing is provided it will give a random fact i.e $trivia`
