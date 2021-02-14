@@ -5,7 +5,12 @@ const commandHandler = require('./commandHandler')
 require('dotenv').config();
 
 function clientReady() {
-	client.user.setPresence({ activity: { name: 'and listening to $help' } })
+	client.user.setPresence({
+		game: {
+			name: "Using $help",
+			type: "LISTENING"
+		}
+	})
 
 	console.log(`Bot online! ${client.user.username}`);
 }
