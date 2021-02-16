@@ -6,13 +6,20 @@ let fields_arr = [];
 readdirSync('commands').forEach(name => {
 	name = name.replace(".js", "");
 	if (name !== "help") {
-		let obj = {
+
+		fields_arr.push({
 			name: "$" + name,
 			value: require("./" + name).help.split("\n")[0],
 			inline: true
-		};
+		});
 
-		fields_arr.push(obj);
+	} else {
+
+		fields_arr.push({
+			name: "$" + name,
+			value: "Sends the Embed you are reading right now.😀",
+		});
+
 	}
 
 })
@@ -31,7 +38,7 @@ fields_arr.push({
 //Special😉
 fields_arr.push({
 	name: "Number of Commands.",
-	value: `${fields_arr.length} ($help is included)`,
+	value: `${fields_arr.length - 1}`,
 })
 
 
@@ -59,7 +66,7 @@ module.exports.func = async function (msg, args) {
 	if (existsSync(path)) {
 		let help_txt = require(`./${help_command}`).help;
 
-		msg.channel.send("```" + help_txt + "```");
+		msg.channel.send("```yaml\n" + help_txt + "\n```");
 	} else {
 		msg.reply("Not a valid command.")
 		msg.react("🤣");
