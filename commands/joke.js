@@ -6,7 +6,7 @@ module.exports.func = async function (msg, args) {
 	let JokeURL = "https://v2.jokeapi.dev/joke/Miscellaneous,Dark,Pun,Spooky,Christmas?type=single"
 
 	if (args[0] !== undefined) {
-		JokeURL += JokeURL + `&contains=${args[0]}`;
+		JokeURL += `&contains=${args[0]}`;
 	}
 
 

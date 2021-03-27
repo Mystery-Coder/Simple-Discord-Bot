@@ -10,14 +10,6 @@ fs.readdirSync("commands").forEach(file => {
 
 module.exports = function (msg) {
 
-	let validChannelIDs = ["808518642966331454", "808323759467397141"];
-
-	let channel = msg.channel;
-	// console.log(channel.type)
-	if (validChannelIDs.includes(channel.id) === false && (channel.type !== "dm" && channel.type !== "text")) {
-		return;
-	}
-
 
 	if (msg.content === "Hello, FirstBot") {
 		msg.channel.send(`Hi, ${msg.author.username} I am watching and learning`);
@@ -31,10 +23,6 @@ module.exports = function (msg) {
 		return;
 	}
 
-
-	if (msg.content === "srikar is mad" || msg.content === "Srikar is mad") {
-		msg.reply("Do not Question the creator😑");
-	}
 
 	// console.log(commands)
 
